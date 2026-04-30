@@ -308,7 +308,7 @@ margin:15px 0;
 color:#64748b;
 }
 
-/* social */
+/* social 
 
 .social-login{
 display:flex;
@@ -336,7 +336,7 @@ color:white;
 .facebook{
 background:#1877f2;
 color:white;
-}
+}*/
 
 /* register text */
 
@@ -367,20 +367,204 @@ opacity:1;
 
 }
 
+
+.forgot-popup{
+display:none;
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.forgot-box{
+background:#fff;
+padding:30px;
+width:350px;
+border-radius:12px;
+text-align:center;
+position:relative;
+animation:fadeIn 0.4s ease;
+}
+
+.forgot-box input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.forgot-box button{
+width:100%;
+padding:10px;
+background:#2563eb;
+color:#fff;
+border:none;
+border-radius:25px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.forgot-box button:hover{
+background:#1e40af;
+}
 /* ================= RESPONSIVE ================= */
 
-@media(max-width:768px){
+/* Large Tablets / Small Laptops */
+@media (max-width: 992px) {
 
-nav{
-display:none;
+  .register-section{
+    padding:100px 5%;
+  }
+
+  .register-container{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .register-form{
+    max-width:500px;
+    width:100%;
+    padding:30px;
+  }
+
 }
 
-.login-container{
-width:90%;
+/* Tablets */
+@media (max-width: 768px) {
+
+  .register-section{
+    padding:90px 4%;
+  }
+
+  .register-form{
+    padding:25px;
+  }
+
+  .register-form h2{
+    font-size:22px;
+  }
+
+  .input-group input,
+  .input-group select{
+    padding:12px;
+    font-size:13px;
+  }
+
+  .btn{
+    padding:11px;
+    font-size:14px;
+  }
+
 }
 
-.hero h1{
-font-size:30px;
+/* Mobile Devices */
+@media (max-width: 576px) {
+
+  .register-section{
+    padding:80px 3%;
+  }
+
+  .register-form{
+    padding:20px;
+    border-radius:15px;
+  }
+
+  .register-form h2{
+    font-size:20px;
+  }
+
+  .input-group{
+    margin-bottom:15px;
+  }
+
+  .input-group input,
+  .input-group select{
+    padding:11px;
+    font-size:13px;
+  }
+
+  .btn{
+    padding:10px;
+    font-size:13px;
+  }
+
+  .login-link{
+    font-size:13px;
+  }
+
 }
+
+/* Extra Small Devices */
+@media (max-width: 400px){
+
+  .register-form{
+    padding:15px;
+  }
+
+  .register-form h2{
+    font-size:18px;
+  }
+
+}
+/* FIX OVERFLOW ISSUE */
+body{
+  overflow-x: hidden;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+@media (max-width:768px){
+
+  nav{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#0f172a;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    display:none;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-container{
+    padding:15px 5%;
+  }
+}
+/* FIX REGISTER SECTION FULL WIDTH */
+.register-section{
+  width:100%;
+}
+
+/* FIX CONTAINER */
+.register-container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* REMOVE SIDE GAP ON MOBILE */
+@media (max-width:768px){
+
+  .register-container{
+    gap:20px;
+  }
+
+  .register-form{
+    width:100%;
+    min-width:100%;
+  }
 
 }

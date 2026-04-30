@@ -53,7 +53,7 @@
 </section>
 
 <!-- ================= FORM SECTION ================= -->
-<section class="form-section" id="tutorForm">
+<section class="form-section" id="tutorSection">
 <div class="form-container">
 
 <div class="form-image">
@@ -65,16 +65,16 @@
 <div class="form-content">
 <h2>Tutor Application Form</h2>
 
-<form>
+<form id="tutorForm">
 
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-<input type="tel" placeholder="Phone Number" required>
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email Address" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
 
-<input type="text" placeholder="Highest Qualification" required>
-<input type="text" placeholder="Subjects You Teach" required>
+<input type="text" id="qualification" placeholder="Highest Qualification" required>
+<input type="text" id="subject" placeholder="Subjects You Teach" required>
 
-<select required>
+<select id="experience" required>
 <option value="">Years of Experience</option>
 <option>1 Year</option>
 <option>2 Years</option>
@@ -83,31 +83,21 @@
 <option>6+ Years</option>
 </select>
 
-<select required>
+<select id="mode" required>
 <option value="">Teaching Mode</option>
 <option>Online</option>
 <option>Physical</option>
 <option>Both</option>
 </select>
 
-<input type="text" placeholder="City / Location" required>
+<input type="text" id="city" placeholder="City / Location" required>
 
-<textarea rows="4" placeholder="Professional Introduction"></textarea>
+<textarea id="intro" rows="4" placeholder="Professional Introduction"></textarea>
 
-<!-- FILE UPLOAD SECTION -->
-<label class="file-label">Upload Last Degree Transcript *</label>
-<input type="file" required>
+<label>Upload CV</label>
+<input type="file" id="cv">
 
-<label class="file-label">Upload CV / Resume *</label>
-<input type="file" required>
-
-<label class="file-label">Upload Experience Certificate (Optional)</label>
-<input type="file">
-
-<button type="button" class="btn primary-btn" onclick="openPopup()">
-Submit Application</button>
-
-
+<button type="submit" class="btn primary-btn" >Submit Application</button>
 <!-- Popup Modal -->
 <div id="policyPopup" class="popup-overlay">
   <div class="popup-box">
@@ -129,11 +119,10 @@ Submit Application</button>
       <li>By submitting this form, you agree to the academy's commission policy.</li>
     </ul>
 
-    <button class="agree-btn" onclick="submitForm()">I Agree & Continue</button>
+    <button type="button" class="agree-btn" onclick="submitTutor()">I Agree & Continue</button>
 
   </div>
 </div>
-
 </form>
 </div>
 
@@ -165,6 +154,19 @@ Submit Application</button>
 <p>Email: zulqarnainsherazi29@gmail.com</p>
 <p>Phone: +92 3415860672</p>
 <p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
 </div>
 </div>
 
@@ -172,27 +174,63 @@ Submit Application</button>
 © 2026 Zulqarnain Academy of Excellence | All Rights Reserved
 </div>
 </footer>
-
 <script>
-function toggleMenu(){
-document.getElementById("navMenu").classList.toggle("active");
-}
-</script>
-<script>
+const form = document.getElementById("tutorForm");
 
-function openPopup(){
-document.getElementById("policyPopup").style.display="flex";
-}
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  document.getElementById("policyPopup").style.display = "flex";
+});
 
 function closePopup(){
-document.getElementById("policyPopup").style.display="none";
+  document.getElementById("policyPopup").style.display = "none";
 }
 
-function submitForm(){
-alert("Application Submitted Successfully!");
-document.getElementById("policyPopup").style.display="none";
-}
+async function submitTutor(){
 
+  try {
+
+    const formData = new FormData();
+
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("qualification", document.getElementById("qualification").value);
+    formData.append("subject", document.getElementById("subject").value);
+    formData.append("experience", document.getElementById("experience").value);
+    formData.append("mode", document.getElementById("mode").value);
+    formData.append("city", document.getElementById("city").value);
+    formData.append("intro", document.getElementById("intro").value);
+
+    const cvFile = document.getElementById("cv").files[0];
+    if(cvFile){
+      formData.append("cv", cvFile);
+    }
+
+    const res = await fetch("http://localhost:5000/api/tutor/apply", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();   // ✅ IMPORTANT FIX
+
+    console.log("RESPONSE:", data);
+
+    if(!res.ok){
+      alert("Server Error: " + data.message);
+      return;
+    }
+
+    alert(data.message);
+
+    document.getElementById("policyPopup").style.display = "none";
+    document.getElementById("tutorForm").reset();
+
+  } catch (error) {
+    console.error("FETCH ERROR:", error);
+    alert("Server not reachable");
+  }
+}
 </script>
 </body>
 </html>

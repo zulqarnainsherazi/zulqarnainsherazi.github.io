@@ -51,29 +51,29 @@
 <!-- RIGHT SIDE: FORM -->
 <div class="register-form">
 <h2>Create an Account</h2>
-<form>
+<form id="registerForm">
 <div class="input-group">
-<input type="text" name="fullname" required placeholder=" ">
+<input type="text" id="name" placeholder="Full Name" required>
 <label>Full Name</label>
 </div>
 <div class="input-group">
-<input type="email" name="email" required placeholder=" ">
+<input type="email" id="email" placeholder="Email" required>
 <label>Email Address</label>
 </div>
 <div class="input-group">
-<input type="tel" name="phone" required placeholder=" ">
+<input type="tel" id="phone" required placeholder="phone">
 <label>Phone Number</label>
 </div>
 <div class="input-group">
-<input type="password" name="password" required placeholder=" ">
+<input type="password" id="password" placeholder="Password" required>
 <label>Password</label>
 </div>
 <div class="input-group">
-<input type="password" name="confirm_password" required placeholder=" ">
+<input type="password" id="confirm_password" required placeholder="password ">
 <label>Confirm Password</label>
 </div>
 <div class="input-group">
-<select required>
+<select id="accountType" required>
 <option value="">Register As</option>
 <option>Student</option>
 <option>Tutor</option>
@@ -82,7 +82,7 @@
 </select>
 <label>Account Type</label>
 </div>
-<button class="btn primary-btn">Register Now</button>
+<button  type="button" onclick="registerUser()" class="btn primary-btn">Register</button>
 <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
 </form>
 </div>
@@ -114,13 +114,55 @@
 <p>Email: zulqarnainsherazi29@gmail.com</p>
 <p>Phone: +92 3415860672</p>
 <p>Loction: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
 </div>
 </div>
 <div class="footer-bottom">© 2026 Zulqarnain Academy of Excellence</div>
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById("navMenu").classList.toggle("active");}
+async function registerUser(){
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const phone = document.getElementById("phone").value;
+const accountType = document.getElementById("accountType").value;
+
+if(!name || !email || !password || !phone || !accountType){
+  alert("Please fill all fields");
+  return;
+}
+
+try {
+  const res = await fetch("http://127.0.0.1:5000/api/users/register", {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify({ name, email, password, phone, accountType })
+  });
+
+  const data = await res.text();
+  alert(data);
+
+} catch (error) {
+  console.error(error);
+  alert("Backend not connected!");
+}
+}
 </script>
 </body>
 </html>

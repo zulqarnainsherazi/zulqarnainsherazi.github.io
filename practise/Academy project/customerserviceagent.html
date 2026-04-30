@@ -80,25 +80,25 @@
 <!-- RIGHT: Glassmorphism Form -->
 <div class="career-form" id="apply">
 <h2>Apply Now</h2>
-<form>
+<form id="agentForm">
 <div class="input-group">
-<input type="text" required>
+<input type="text" id="name"  required>
 <label>Full Name</label>
 </div>
 <div class="input-group">
-<input type="email" required>
+<input type="email" id="email"  required>
 <label>Email Address</label>
 </div>
 <div class="input-group">
-<input type="tel" required>
+<input type="tel" id="phone"  required>
 <label>Phone Number</label>
 </div>
 <div class="input-group">
-<input type="text" required>
+<input type="text" id="city"  required>
 <label>City</label>
 </div>
 <div class="input-group">
-<select required>
+<select  id="education"  required>
 <option value="">Education Level</option>
 <option>Intermediate</option>
 <option>Bachelor</option>
@@ -107,13 +107,13 @@
 <label>Education</label>
 </div>
 <div class="input-group">
-<input type="file">
+<input type="file" id="certificate" >
 <label>Experience Certificate (optional)</label>
 </div>
 <div class="input-group">
-<textarea rows="4" placeholder="Tell us about your communication experience"></textarea>
+<textarea id="description"  rows="4" placeholder="Tell us about your communication experience"></textarea>
 </div>
-<button class="btn primary-btn">Submit Application</button>
+<button type="submit" class="btn primary-btn">Submit Application</button>
 </form>
 </div>
 
@@ -144,13 +144,74 @@
 <p>Email: zulqarnainsherazi29@gmail.com</p>
 <p>Phone: +92 3415860672</p>
 <p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
 </div>
 </div>
 <div class="footer-bottom">© 2026 Zulqarnain Academy of Excellence</div>
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById("navMenu").classList.toggle("active");}
+const form = document.getElementById("agentForm");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("city", document.getElementById("city").value);
+    formData.append("education", document.getElementById("education").value);
+    formData.append("description", document.getElementById("description").value);
+
+    const file = document.getElementById("certificate").files[0];
+    if(file){
+      formData.append("certificate", file);
+    }
+
+    const res = await fetch("http://localhost:5000/api/agent/apply", {
+      method: "POST",
+      body: formData
+    });
+
+    const text = await res.text();
+    console.log("RAW:", text);
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      alert("Server error (not JSON)");
+      return;
+    }
+
+    if(res.ok){
+      alert(data.message);
+      form.reset();
+    } else {
+      alert("Error: " + data.message);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Backend not connected!");
+  }
+});
 </script>
 </body>
 </html>

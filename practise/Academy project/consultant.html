@@ -69,18 +69,18 @@
     <div class="form-content" id="apply">
       <h2>Apply as Educational Consultant</h2>
 
-      <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="Phone Number" required>
-        <input type="text" placeholder="Years of Experience" required>
+      <form id="consultantForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="experience" placeholder="Years of Experience" required>
 
         <label>Upload Professional Certificates</label>
-        <input type="file" multiple required>
+        <input type="file" id="certificates" multiple required>
         <label>Upload CV</label>
-        <input type="file" multiple required>
+        <input type="file" id="cv" multiple required>
 
-        <textarea placeholder="Describe your professional experience..." rows="4" required></textarea>
+        <textarea id="description" placeholder="Describe your professional experience..." rows="4" required></textarea>
 
         <button type="submit" class="btn primary-btn">Submit Application</button>
       </form>
@@ -117,7 +117,20 @@
       <h4>Contact</h4>
       <p>Email: zulqarnainsherazi26@gmail.com</p>
       <p>Phone: +92 3415860672</p>
-      <p><p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p></p>
+      <p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+       <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
     </div>
 
   </div>
@@ -130,9 +143,60 @@
 
 <!-- ================= SCRIPT ================= -->
 <script>
-function toggleMenu(){
-  document.getElementById("navMenu").classList.toggle("active");
+const form = document.getElementById("consultantForm");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("experience", document.getElementById("experience").value);
+    formData.append("description", document.getElementById("description").value);
+
+    // multiple files
+    const certFiles = document.getElementById("certificates").files;
+    for(let i=0; i<certFiles.length; i++){
+      formData.append("certificates", certFiles[i]);
+    }
+
+    const cvFile = document.getElementById("cv").files[0];
+    if(cvFile){
+      formData.append("cv", cvFile);
+    }
+
+    const res = await fetch("http://localhost:5000/api/consultant/apply", {
+  method: "POST",
+  body: formData
+});
+
+const text = await res.text();
+
+console.log("RAW RESPONSE:", text);
+
+let data;
+try {
+  data = JSON.parse(text);
+} catch {
+  alert("Server returned HTML error");
+  return;
 }
+
+if(res.ok){
+  alert(data.message);
+} else {
+  alert("Error: " + data.message);
+}
+
+  } catch (error) {
+    console.error(error);
+    alert("Backend not connected!");
+  }
+});
 </script>
 
 </body>
