@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "69edb6969e3f982233694cad"
+  },
+  "name": "Laraib ikhlaq",
+  "email": "zulqarnainsherazi29@gmail.com",
+  "phone": "03097749812",
+  "experience": "2 years",
+  "description": "lllllllllzzzzzzz",
+  "certificates": [
+    "1777186454576-LaraibCV.pdf"
+  ],
+  "cv": [
+    "1777186454578-Zulqarnain Sherazi.docxFDS 1 (1).docx"
+  ],
+  "createdAt": {
+    "$date": "2026-04-26T06:54:14.624Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-26T06:54:14.624Z"
+  },
+  "__v": 0
+}]

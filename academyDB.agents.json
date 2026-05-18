@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "69edb9e26342dfae0c2823c5"
+  },
+  "name": "Laraib ikhlaq",
+  "email": "zulqarnainsherazi29@gmail.com",
+  "phone": "03097749812",
+  "city": "islamabad",
+  "education": "Intermediate",
+  "description": "qqqqqqqqq",
+  "certificate": "1777187298280-LaraibCV.pdf",
+  "createdAt": {
+    "$date": "2026-04-26T07:08:18.319Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-26T07:08:18.319Z"
+  },
+  "__v": 0
+}]

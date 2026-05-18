@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "69edcf3e0d5d6a0caecce04a"
+  },
+  "name": "Laraib ikhlaq",
+  "email": "zulqarnainsherazi29@gmail.com",
+  "phone": "03097749812",
+  "qualification": "BSSE",
+  "subject": "computer",
+  "experience": "3 Years",
+  "mode": "Physical",
+  "city": "islamabad",
+  "intro": "m",
+  "cv": "1777192766548-LaraibCV.pdf",
+  "createdAt": {
+    "$date": "2026-04-26T08:39:26.586Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-26T08:39:26.586Z"
+  },
+  "__v": 0
+}]
