@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Zulqarnain Academy</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="stylesheet" href="register.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="nav-container">
+<div class="logo1">
+<img src="academylogozulqar-removebg-preview.png" alt="Zulqarnain Academy Logo">
+<div class="logo">Zulqarnain Academy</div>
+</a>
+</div>
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="findtutor.html">Find a Tutor</a>
+<a href="becometutor.html">Become a Tutor</a>
+<a href="courses.html">Courses</a>
+<a href="payment.html">Payment Method</a>
+ <!-- Career Dropdown -->
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Career ▼</a>
+    <div class="dropdown-content">
+      <a href="consultant.html">Consultant</a>
+      <a href="customerserviceagent.html">Customer Service Agents</a>
+      <a href="becometutor.html">Apply as Tutor</a>
+    </div>
+  </div>
+<a href="login.html" class="login-btn">Login</a>
+<a href="register.html" class="login-btn">Register</a>
+</nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</div>
+</header>
+<!-- ================= HERO / REGISTER SECTION ================= -->
+<section class="register-section">
+<div class="register-container">
+
+
+
+<!-- RIGHT SIDE: FORM -->
+<div class="register-form">
+<h2>Create an Account</h2>
+<form id="registerForm">
+<div class="input-group">
+<input type="text" id="name" placeholder="Full Name" required>
+<label>Full Name</label>
+</div>
+<div class="input-group">
+<input type="email" id="email" placeholder="Email" required>
+<label>Email Address</label>
+</div>
+<div class="input-group">
+<input type="tel" id="phone" required placeholder="phone">
+<label>Phone Number</label>
+</div>
+<div class="input-group">
+<input type="password" id="password" placeholder="Password" required>
+<label>Password</label>
+</div>
+<div class="input-group">
+<input type="password" id="confirm_password" required placeholder="password ">
+<label>Confirm Password</label>
+</div>
+<div class="input-group">
+<select id="accountType" required>
+<option value="">Register As</option>
+<option>Student</option>
+<option>Tutor</option>
+<option>consultant</option>
+<option>customerserviceagent</option>
+</select>
+<label>Account Type</label>
+</div>
+<button  type="button" onclick="registerUser()" class="btn primary-btn">Register</button>
+<p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+</form>
+</div>
+
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<div class="footer-grid">
+<div>
+<h4>About</h4>
+<p>Zulqarnain Academy connects professional tutors with students and provides high-quality educational services across multiple disciplines.</p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<a href="findtutor.html">Find Tutor</a>
+<a href="becometutor.html">Become Tutor</a>
+<a href="courses.html">Courses</a>
+</div>
+<div>
+<h4>Support</h4>
+<a href="faqs.html">FAQs</a>
+<a href="privacypolicy.html">Privacy Policy</a>
+<a href="termsconditions.html">Terms & Conditions</a>
+</div>
+<div>
+<h4>Contact</h4>
+<p>Email: zulqarnainsherazi29@gmail.com</p>
+<p>Phone: +92 3415860672</p>
+<p>Loction: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
+</div>
+</div>
+<div class="footer-bottom">© 2026 Zulqarnain Academy of Excellence</div>
+</footer>
+
+<script>
+async function registerUser(){
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+const phone = document.getElementById("phone").value;
+const accountType = document.getElementById("accountType").value;
+
+if(!name || !email || !password || !phone || !accountType){
+  alert("Please fill all fields");
+  return;
+}
+
+try {
+  const res = await fetch("http://127.0.0.1:5000/api/users/register", {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify({ name, email, password, phone, accountType })
+  });
+
+  const data = await res.text();
+  alert(data);
+
+} catch (error) {
+  console.error(error);
+  alert("Backend not connected!");
+}
+}
+</script>
+</body>
+</html>

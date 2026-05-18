@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Tutor | Zulqarnain Academy</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="stylesheet" href="becometutor.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="nav-container">
+<div class="logo1">
+<img src="academylogozulqar-removebg-preview.png" alt="Zulqarnain Academy Logo">
+<div class="logo">Zulqarnain Academy</div>
+</a>
+</div>
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="findtutor.html">Find a Tutor</a>
+<a href="becometutor.html">Become a Tutor</a>
+<a href="courses.html">Courses</a>
+<a href="payment.html">Payment Method</a>
+ <!-- Career Dropdown -->
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Career ▼</a>
+    <div class="dropdown-content">
+      <a href="consultant.html">Consultant</a>
+      <a href="customerserviceagent.html">Customer Service Agents</a>
+      <a href="becometutor.html">Apply as Tutor</a>
+    </div>
+  </div>
+<a href="login.html" class="login-btn">Login</a>
+<a href="register.html" class="login-btn">Register</a>
+</nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+<div class="hero-content">
+<h1>Become a Certified Tutor</h1>
+<p>Empower students. Share your knowledge. Build your professional teaching career with us.</p>
+<a href="#tutorForm" class="hero-btn">Apply Now</a>
+</div>
+</section>
+
+<!-- ================= FORM SECTION ================= -->
+<section class="form-section" id="tutorSection">
+<div class="form-container">
+
+<div class="form-image">
+    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Modern Classroom"><br>
+<img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Academic Tutor Guidance">
+
+</div>
+
+<div class="form-content">
+<h2>Tutor Application Form</h2>
+
+<form id="tutorForm">
+
+<input type="text" id="name" placeholder="Full Name" required>
+<input type="email" id="email" placeholder="Email Address" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+
+<input type="text" id="qualification" placeholder="Highest Qualification" required>
+<input type="text" id="subject" placeholder="Subjects You Teach" required>
+
+<select id="experience" required>
+<option value="">Years of Experience</option>
+<option>1 Year</option>
+<option>2 Years</option>
+<option>3 Years</option>
+<option>4+ Years</option>
+<option>6+ Years</option>
+</select>
+
+<select id="mode" required>
+<option value="">Teaching Mode</option>
+<option>Online</option>
+<option>Physical</option>
+<option>Both</option>
+</select>
+
+<input type="text" id="city" placeholder="City / Location" required>
+
+<textarea id="intro" rows="4" placeholder="Professional Introduction"></textarea>
+
+<label>Upload CV</label>
+<input type="file" id="cv">
+
+<button type="submit" class="btn primary-btn" >Submit Application</button>
+<!-- Popup Modal -->
+<div id="policyPopup" class="popup-overlay">
+  <div class="popup-box">
+    
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+
+    <h2>Tutor Commission Policy</h2>
+
+    <p>
+    Before submitting your tutor application, please read the academy policy carefully.
+    </p>
+
+    <ul>
+      <li><strong>First Month online tuition:</strong> The academy will receive <b>50%</b> of the student's fee.</li>
+      <li><strong>Following Months:</strong> The academy will receive <b>20%</b> of the monthly fee.</li>
+      <li><strong>First Month physical tution:</strong> The academy will receive <b>70%</b> of the student's fee.</li>
+      <li><strong>Following Months:</strong> The teacher will receive <b>Total</b> of the monthly fee.</li>
+      <li>This policy helps us maintain platform quality, marketing, and student support services.</li>
+      <li>By submitting this form, you agree to the academy's commission policy.</li>
+    </ul>
+
+    <button type="button" class="agree-btn" onclick="submitTutor()">I Agree & Continue</button>
+
+  </div>
+</div>
+</form>
+</div>
+
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<div class="footer-grid">
+<div>
+<h4>About</h4>
+<p>Zulqarnain Academy connects talented tutors with students for quality education.</p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<a href="findtutor.html">Find Tutor</a>
+<a href="becometutor.html">Become Tutor</a>
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+</div>
+<div>
+<h4>Support</h4>
+<a href="faqs.html">FAQs</a>
+<a href="privacypolicy.html">Privacy Policy</a>
+<a href="termsconditions.html">Terms & Conditions</a>
+</div>
+<div>
+<h4>Contact</h4>
+<p>Email: zulqarnainsherazi29@gmail.com</p>
+<p>Phone: +92 3415860672</p>
+<p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
+</div>
+</div>
+
+<div class="footer-bottom">
+© 2026 Zulqarnain Academy of Excellence | All Rights Reserved
+</div>
+</footer>
+<script>
+const form = document.getElementById("tutorForm");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  document.getElementById("policyPopup").style.display = "flex";
+});
+
+function closePopup(){
+  document.getElementById("policyPopup").style.display = "none";
+}
+
+async function submitTutor(){
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("qualification", document.getElementById("qualification").value);
+    formData.append("subject", document.getElementById("subject").value);
+    formData.append("experience", document.getElementById("experience").value);
+    formData.append("mode", document.getElementById("mode").value);
+    formData.append("city", document.getElementById("city").value);
+    formData.append("intro", document.getElementById("intro").value);
+
+    const cvFile = document.getElementById("cv").files[0];
+    if(cvFile){
+      formData.append("cv", cvFile);
+    }
+
+    const res = await fetch("http://localhost:5000/api/tutor/apply", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();   // ✅ IMPORTANT FIX
+
+    console.log("RESPONSE:", data);
+
+    if(!res.ok){
+      alert("Server Error: " + data.message);
+      return;
+    }
+
+    alert(data.message);
+
+    document.getElementById("policyPopup").style.display = "none";
+    document.getElementById("tutorForm").reset();
+
+  } catch (error) {
+    console.error("FETCH ERROR:", error);
+    alert("Server not reachable");
+  }
+}
+</script>
+</body>
+</html>

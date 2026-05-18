@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultant Career | Zulqarnain Academy</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="stylesheet" href="consultant.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="nav-container">
+<div class="logo1">
+<img src="academylogozulqar-removebg-preview.png" alt="Zulqarnain Academy Logo">
+<div class="logo">Zulqarnain Academy</div>
+</a>
+</div>
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="findtutor.html">Find a Tutor</a>
+<a href="becometutor.html">Become a Tutor</a>
+<a href="courses.html">Courses</a>
+<a href="payment.html">Payment Method</a>
+ <!-- Career Dropdown -->
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Career ▼</a>
+    <div class="dropdown-content">
+      <a href="consultant.html">Consultant</a>
+      <a href="customerserviceagent.html">Customer Service Agents</a>
+      <a href="becometutor.html">Apply as Tutor</a>
+    </div>
+  </div>
+<a href="login.html" class="login-btn">Login</a>
+<a href="register.html" class="login-btn">Register</a>
+</nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</div>
+</header>
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Educational Consultant Career</h1>
+    <p>Guide students toward academic excellence and professional growth with Zulqarnain Academy.</p>
+    <a href="#apply" class="hero-btn">Apply Now</a>
+  </div>
+</section>
+
+
+<!-- ================= CAREER SECTION ================= -->
+
+<section class="form-section">
+  <div class="form-container">
+
+    <!-- Left Content -->
+    <div class="form-image">
+      <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0" alt="Consultant Career"><br>
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="Career Consultant Meeting">
+    </div>
+
+    <!-- Right Form -->
+    <div class="form-content" id="apply">
+      <h2>Apply as Educational Consultant</h2>
+
+      <form id="consultantForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="text" id="experience" placeholder="Years of Experience" required>
+
+        <label>Upload Professional Certificates</label>
+        <input type="file" id="certificates" multiple required>
+        <label>Upload CV</label>
+        <input type="file" id="cv" multiple required>
+
+        <textarea id="description" placeholder="Describe your professional experience..." rows="4" required></textarea>
+
+        <button type="submit" class="btn primary-btn">Submit Application</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h4>Zulqarnain Academy</h4>
+      <p>Providing quality education, professional mentorship and real-world skills to help students succeed academically and professionally.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="Home.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="findtutor.html">Find Tutor</a>
+      <a href="consultant.html">Careers</a>
+    </div>
+<div>
+<h4>Support</h4>
+<a href="faqs.html">FAQs</a>
+<a href="privacypolicy.html">Privacy Policy</a>
+<a href="termsconditions.html">Terms & Conditions</a>
+</div>
+    <div>
+      <h4>Contact</h4>
+      <p>Email: zulqarnainsherazi26@gmail.com</p>
+      <p>Phone: +92 3415860672</p>
+      <p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+       <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Zulqarnain Academy. All Rights Reserved.
+  </div>
+</footer>
+
+
+<!-- ================= SCRIPT ================= -->
+<script>
+const form = document.getElementById("consultantForm");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("experience", document.getElementById("experience").value);
+    formData.append("description", document.getElementById("description").value);
+
+    // multiple files
+    const certFiles = document.getElementById("certificates").files;
+    for(let i=0; i<certFiles.length; i++){
+      formData.append("certificates", certFiles[i]);
+    }
+
+    const cvFile = document.getElementById("cv").files[0];
+    if(cvFile){
+      formData.append("cv", cvFile);
+    }
+
+    const res = await fetch("http://localhost:5000/api/consultant/apply", {
+  method: "POST",
+  body: formData
+});
+
+const text = await res.text();
+
+console.log("RAW RESPONSE:", text);
+
+let data;
+try {
+  data = JSON.parse(text);
+} catch {
+  alert("Server returned HTML error");
+  return;
+}
+
+if(res.ok){
+  alert(data.message);
+} else {
+  alert("Error: " + data.message);
+}
+
+  } catch (error) {
+    console.error(error);
+    alert("Backend not connected!");
+  }
+});
+</script>
+
+</body>
+</html>

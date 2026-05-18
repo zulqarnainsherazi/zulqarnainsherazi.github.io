@@ -1,0 +1,418 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f8fafc;
+color:#1e293b;
+}
+/* ================= NAVBAR ================= */
+.logo1{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:600;
+font-size:20px;
+}
+
+.logo1 img{
+height:60px;
+width:auto;
+}
+header{
+position:fixed;
+width:100%;
+top:0;
+left:0;
+background:rgba(15,23,42,0.95);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.nav-container{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 8%;
+}
+
+.logo{
+color:#fff;
+font-size:22px;
+font-weight:700;
+}
+
+nav{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+/* ================= DROPDOWN NAVBAR ================= */
+nav {
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  cursor:pointer;
+  padding:10px 15px;
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.dropbtn:hover {
+  color:#2563eb;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 220px;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.1);
+  border-radius:8px;
+  z-index: 100;
+  overflow:hidden;
+}
+
+.dropdown-content a {
+  color: #475569;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight:500;
+  transition:0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f5f9;
+  color:#2563eb;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .dropdown-content{
+    position:relative;
+  }
+}
+.login-btn{
+background:#38bdf8;
+padding:8px 18px;
+border-radius:25px;
+color:#fff;
+transition:0.3s;
+}
+
+.login-btn:hover{
+background:#2563eb;
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+color:#fff;
+cursor:pointer;
+}
+
+
+/* ================= REGISTER SECTION ================= */
+.register-section{
+padding:120px 8%;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+.register-container{
+display:flex;
+gap:50px;
+align-items:center;
+flex-wrap:wrap;
+}
+.register-image{
+  width:100%;
+  text-align:center;
+}
+.register-image img{
+width:100%;
+ height:auto;
+max-width:500px;
+border-radius:15px;
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+transition: transform 0.5s;
+}
+.register-image img:hover{
+transform:scale(1.05);
+}
+
+.register-form{
+flex:1;
+min-width:320px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:15px;
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+
+.register-form h2{text-align:center;margin-bottom:20px;color:#1e293b;}
+
+form .input-group{position:relative;margin-bottom:20px;}
+form .input-group input,
+form .input-group select{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #cbd5e1;
+background:transparent;
+font-size:14px;
+color:#1e293b;
+transition:0.3s;
+}
+
+form .input-group label{
+position:absolute;
+top:12px; left:12px;
+color:#475569;
+pointer-events:none;
+transition:0.3s;
+background:white; padding:0 5px;
+}
+
+form .input-group input:focus + label,
+form .input-group input:not(:placeholder-shown) + label,
+form .input-group select:focus + label,
+form .input-group select:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    color: #2563eb;
+}
+
+textarea{resize:none;}
+
+.btn{
+width:100%;
+margin-top:10px;
+padding:12px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.primary-btn{
+background:#2563eb;
+color:white;
+}
+
+.primary-btn:hover{
+background:#1e40af;
+transform:translateY(-2px);
+}
+
+.login-link{
+margin-top:15px;
+text-align:center;
+font-size:14px;
+}
+
+.login-link a{
+color:#2563eb;
+text-decoration:none;
+font-weight:500;
+}
+
+.login-link a:hover{
+text-decoration:underline;
+}
+
+/* ================= FOOTER ================= */
+footer{background:#0f172a;color:#cbd5e1;padding:60px 8% 20px;}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;}
+footer h4{color:white;margin-bottom:10px;}
+footer a{color:#cbd5e1;text-decoration:none;display:block;margin-bottom:6px;}
+.footer-bottom{text-align:center;border-top:1px solid #334155;padding-top:15px;}
+
+/* ================= RESPONSIVE ================= */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 992px) {
+
+  .register-section{
+    padding:100px 5%;
+  }
+
+  .register-container{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .register-form{
+    max-width:500px;
+    width:100%;
+    padding:30px;
+  }
+
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+
+  .register-section{
+    padding:90px 4%;
+  }
+
+  .register-form{
+    padding:25px;
+  }
+
+  .register-form h2{
+    font-size:22px;
+  }
+
+  .input-group input,
+  .input-group select{
+    padding:12px;
+    font-size:13px;
+  }
+
+  .btn{
+    padding:11px;
+    font-size:14px;
+  }
+
+}
+
+/* Mobile Devices */
+@media (max-width: 576px) {
+
+  .register-section{
+    padding:80px 3%;
+  }
+
+  .register-form{
+    padding:20px;
+    border-radius:15px;
+  }
+
+  .register-form h2{
+    font-size:20px;
+  }
+
+  .input-group{
+    margin-bottom:15px;
+  }
+
+  .input-group input,
+  .input-group select{
+    padding:11px;
+    font-size:13px;
+  }
+
+  .btn{
+    padding:10px;
+    font-size:13px;
+  }
+
+  .login-link{
+    font-size:13px;
+  }
+
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px){
+
+  .register-form{
+    padding:15px;
+  }
+
+  .register-form h2{
+    font-size:18px;
+  }
+
+}
+/* FIX OVERFLOW ISSUE */
+body{
+  overflow-x: hidden;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+@media (max-width:768px){
+
+  nav{
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#0f172a;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    display:none;
+  }
+
+  nav.active{
+    display:flex;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .nav-container{
+    padding:15px 5%;
+  }
+}
+/* FIX REGISTER SECTION FULL WIDTH */
+.register-section{
+  width:100%;
+}
+
+/* FIX CONTAINER */
+.register-container{
+  width:100%;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* REMOVE SIDE GAP ON MOBILE */
+@media (max-width:768px){
+
+  .register-container{
+    gap:20px;
+  }
+
+  .register-form{
+    width:100%;
+    min-width:100%;
+  }
+
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Enrollment | Zulqarnain Academy</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f4f6f9;
+}
+
+/* PAGE HEADER */
+
+.page-header{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+
+.page-header h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.page-header p{
+opacity:0.8;
+}
+.back-icon{
+position:absolute;
+top:20px;
+left:20px;
+font-size:24px;
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.back-icon:hover{
+color:white;
+}
+/* MAIN SECTION */
+
+.enroll-section{
+max-width:1200px;
+margin:40px auto;
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+/* COURSE INFO */
+
+.course-info{
+flex:1;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.course-info h2{
+margin-bottom:15px;
+color:#0f172a;
+}
+
+.course-info p{
+margin-bottom:15px;
+line-height:1.6;
+color:#444;
+}
+
+.course-info ul{
+margin-top:10px;
+padding-left:20px;
+}
+
+.course-info ul li{
+margin-bottom:8px;
+}
+
+/* FORM */
+
+.enroll-form{
+flex:1;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.enroll-form h2{
+margin-bottom:20px;
+color:#0f172a;
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:5px;
+font-weight:500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+textarea{
+resize:none;
+height:100px;
+}
+
+/* BUTTON */
+
+.enroll-btn{
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.enroll-btn:hover{
+background:#1d4ed8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.enroll-section{
+flex-direction:column;
+}
+
+}
+/* ================= FOOTER ================= */
+
+footer{
+background:#0f172a;
+color:#cbd5e1;
+padding:60px 8% 20px 8%;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px;
+margin-bottom:40px;
+}
+
+footer h4{
+color:white;
+margin-bottom:15px;
+}
+
+footer a{
+color:#cbd5e1;
+text-decoration:none;
+display:block;
+margin-bottom:8px;
+}
+
+footer a:hover{
+color:#38bdf8;
+}
+
+.footer-bottom{
+text-align:center;
+border-top:1px solid #334155;
+padding-top:15px;
+}
+
+
+</style>
+</head>
+
+<body>
+<a href="courses.html" class="back-icon">←</a>
+<div class="page-header">
+<h1>Course Enrollment</h1>
+<p>Fill the form below to enroll in your selected course</p>
+</div>
+
+
+<section class="enroll-section">
+
+<!-- COURSE DETAILS -->
+
+<div class="course-info">
+
+<h2>Course Details</h2>
+
+<p>
+Welcome to Zulqarnain Academy. By enrolling in this course you will receive professional training from experienced tutors.
+</p>
+
+<ul>
+<li>Live Online Classes</li>
+<li>Weekly Assignments</li>
+<li>Course Completion Certificate</li>
+<li>Direct Tutor Support</li>
+<li>Flexible Learning Schedule</li>
+</ul>
+
+<p><strong>Duration:</strong> 3 Months</p>
+<p><strong>Fee:</strong> According to course plan</p>
+
+</div>
+
+
+<!-- ENROLL FORM -->
+
+<div class="enroll-form">
+
+<h2>Enroll Now</h2>
+
+<form id="enrollForm">
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" id="name" required>
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" id="phone" required>
+</div>
+
+<div class="form-group">
+<label>Select Course</label>
+<select id="course" required>
+<option value="">Choose Course</option>
+<option>Web Development</option>
+<option>Graphic Design</option>
+<option>Programming Languages</option>
+<option>Python programming</option>
+<option>MS Office</option>
+<option>Advance English Language</option>
+<option>Basic English Language</option>
+<option>Quran Learning</option>
+<option>Farsi Language</option>
+<option>Urdu Language</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Message (Optional)</label>
+<textarea  id="message" placeholder="Write your message..."></textarea>
+</div>
+
+<button type="submit" class="enroll-btn">Submit Enrollment</button>
+
+</form>
+ 
+
+</div>
+
+</section>
+<!-- ================= FOOTER ================= -->
+<footer>
+<div class="footer-grid">
+<div>
+<h4>About</h4>
+<p>Zulqarnain Academy connects talented tutors with students for quality education.</p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<a href="findtutor.html">Find Tutor</a>
+<a href="becometutor.html">Become Tutor</a>
+<a href="login.html">Login</a>
+<a href="register.html">Register</a>
+</div>
+<div>
+<h4>Support</h4>
+<a href="faqs.html">FAQs</a>
+<a href="privacypolicy.html">Privacy Policy</a>
+<a href="termsconditions.html">Terms & Conditions</a>
+</div>
+<div>
+<h4>Contact</h4>
+<p>Email: zulqarnainsherazi29@gmail.com</p>
+<p>Phone: +92 3415860672</p>
+<p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
+</div>
+</div>
+
+<div class="footer-bottom">
+© 2026 Zulqarnain Academy of Excellence | All Rights Reserved
+</div>
+</footer>
+<script>
+const form = document.getElementById("enrollForm");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const course = document.getElementById("course").value;
+  const message = document.getElementById("message").value;
+
+  if(!name || !email || !phone || !course){
+    alert("Please fill all required fields");
+    return;
+  }
+
+  try{
+    const res = await fetch("http://localhost:5000/api/enroll", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, phone, course, message })
+    });
+
+    const data = await res.json();
+
+    if(res.ok){
+      alert(data.message);
+      form.reset();
+    } else {
+      alert(data.message);
+    }
+
+  } catch(err){
+    console.error(err);
+    alert("Backend not connected!");
+  }
+});
+</script>
+</body>
+</html>

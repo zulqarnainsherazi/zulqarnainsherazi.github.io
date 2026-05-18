@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Service Agent | Zulqarnain Academy</title>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+<link rel="manifest" href="favicon_io/site.webmanifest">
+<link rel="stylesheet" href="customerserviceagent.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header>
+<div class="nav-container">
+<div class="logo1">
+<img src="academylogozulqar-removebg-preview.png" alt="Zulqarnain Academy Logo">
+<div class="logo">Zulqarnain Academy</div>
+</a>
+</div>
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="findtutor.html">Find a Tutor</a>
+<a href="becometutor.html">Become a Tutor</a>
+<a href="courses.html">Courses</a>
+<a href="payment.html">Payment Method</a>
+ <!-- Career Dropdown -->
+  <div class="dropdown">
+    <a href="#" class="dropbtn">Career ▼</a>
+    <div class="dropdown-content">
+      <a href="consultant.html">Consultant</a>
+      <a href="customerserviceagent.html">Customer Service Agents</a>
+      <a href="becometutor.html">Apply as Tutor</a>
+    </div>
+  </div>
+<a href="login.html" class="login-btn">Login</a>
+<a href="register.html" class="login-btn">Register</a>
+</nav>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+<div class="hero-content">
+<h1>Customer Service Agent</h1>
+<p>Become a key member of Zulqarnain Academy and help students and tutors connect professionally. Join our team and provide exceptional support.</p>
+<a href="#apply" class="hero-btn">Apply Now</a>
+</div>
+</section>
+
+<!-- ================= CAREER SECTION ================= -->
+<section class="career-section">
+<div class="career-container">
+
+<!-- LEFT: Job Description Cards -->
+<div class="career-description">
+<h2>Job Responsibilities</h2>
+<div class="job-card">
+<h3>Student & Tutor Support</h3>
+<p>Assist students and tutors in navigating the platform and resolving queries efficiently.</p>
+</div>
+<div class="job-card">
+<h3>Communication & Guidance</h3>
+<p>Provide detailed guidance about academy courses and services while maintaining professionalism.</p>
+</div>
+<div class="job-card">
+<h3>Issue Resolution</h3>
+<p>Handle complaints, resolve problems calmly, and ensure a smooth user experience for all clients.</p>
+</div>
+<div class="job-card">
+<h3>Skills & Expertise</h3>
+<p>Strong communication, bilingual abilities, and professional attitude to maintain high-quality support.</p>
+</div>
+</div>
+
+<!-- RIGHT: Glassmorphism Form -->
+<div class="career-form" id="apply">
+<h2>Apply Now</h2>
+<form id="agentForm">
+<div class="input-group">
+<input type="text" id="name"  required>
+<label>Full Name</label>
+</div>
+<div class="input-group">
+<input type="email" id="email"  required>
+<label>Email Address</label>
+</div>
+<div class="input-group">
+<input type="tel" id="phone"  required>
+<label>Phone Number</label>
+</div>
+<div class="input-group">
+<input type="text" id="city"  required>
+<label>City</label>
+</div>
+<div class="input-group">
+<select  id="education"  required>
+<option value="">Education Level</option>
+<option>Intermediate</option>
+<option>Bachelor</option>
+<option>Master</option>
+</select>
+<label>Education</label>
+</div>
+<div class="input-group">
+<input type="file" id="certificate" >
+<label>Experience Certificate (optional)</label>
+</div>
+<div class="input-group">
+<textarea id="description"  rows="4" placeholder="Tell us about your communication experience"></textarea>
+</div>
+<button type="submit" class="btn primary-btn">Submit Application</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+<div class="footer-grid">
+<div>
+<h4>About</h4>
+<p>Zulqarnain Academy connects professional tutors with students and provides high-quality educational services across multiple disciplines.</p>
+</div>
+<div>
+<h4>Quick Links</h4>
+<a href="findtutor.html">Find Tutor</a>
+<a href="becometutor.html">Become Tutor</a>
+<a href="courses.html">Courses</a>
+</div>
+<div>
+<h4>Support</h4>
+<a href="faqs.html">FAQs</a>
+<a href="privacypolicy.html">Privacy Policy</a>
+<a href="termsconditions.html">Terms & Conditions</a>
+</div>
+<div>
+<h4>Contact</h4>
+<p>Email: zulqarnainsherazi29@gmail.com</p>
+<p>Phone: +92 3415860672</p>
+<p>Location: Office no.3/2 3D Arced Plaza ShalimarTown near New Airport Islamabad</p>
+ <!-- WhatsApp Logo Link -->
+  <a href="https://wa.me/+923206561740" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+         alt="WhatsApp" 
+         style="width:70px;height:70px;">
+  </a>
+  <!-- YouTube Logo -->
+   <a href="https://www.youtube.com/@imamiahussainidastabhalwal9321" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" 
+         alt="YouTube" 
+         style="width:180px;height:auto;">
+  </a>
+
+</div>
+</div>
+<div class="footer-bottom">© 2026 Zulqarnain Academy of Excellence</div>
+</footer>
+
+<script>
+const form = document.getElementById("agentForm");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+
+  try {
+
+    const formData = new FormData();
+
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("phone", document.getElementById("phone").value);
+    formData.append("city", document.getElementById("city").value);
+    formData.append("education", document.getElementById("education").value);
+    formData.append("description", document.getElementById("description").value);
+
+    const file = document.getElementById("certificate").files[0];
+    if(file){
+      formData.append("certificate", file);
+    }
+
+    const res = await fetch("http://localhost:5000/api/agent/apply", {
+      method: "POST",
+      body: formData
+    });
+
+    const text = await res.text();
+    console.log("RAW:", text);
+
+    let data;
+    try {
+      data = JSON.parse(text);
+    } catch {
+      alert("Server error (not JSON)");
+      return;
+    }
+
+    if(res.ok){
+      alert(data.message);
+      form.reset();
+    } else {
+      alert("Error: " + data.message);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Backend not connected!");
+  }
+});
+</script>
+</body>
+</html>
