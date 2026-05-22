@@ -3,7 +3,7 @@ const router = express.Router();
 const Tutor = require("../models/Tutor");
 const multer = require("multer");
 
-// STORAGE
+// STORAGE CONFIG
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// ROUTE
+// ROUTE: Apply as Tutor
 router.post(
   "/apply",
   upload.fields([
@@ -29,36 +29,50 @@ router.post(
       console.log("BODY:", req.body);
       console.log("FILES:", req.files);
 
-      const tutor = new Tutor({
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone,
-        qualification: req.body.qualification,
-        city: req.body.city,
-        intro: req.body.intro,
-        subject: req.body.subject,
-        experience: req.body.experience,
-        mode: req.body.mode,
-       frontCnic: req.files?.frontCnic?.[0]?.filename || "",
-backCnic: req.files?.backCnic?.[0]?.filename || "",
-cv: req.files?.cv?.[0]?.filename || "",
-qualificationProof: req.files?.qualificationProof?.[0]?.filename || ""
+      // ✅ Validate required fields
+      const { name, email, phone, qualification, city, intro, subject, experience, mode } = req.body;
 
+      if (!name || !email || !phone || !qualification) {
+        return res.status(400).json({
+          message: "Missing required fields: name, email, phone, qualification"
+        });
+      }
+
+      // ✅ Check for duplicate email
+      const existingTutor = await Tutor.findOne({ email });
+      if (existingTutor) {
+        return res.status(400).json({
+          message: "Email already exists (already applied as tutor)"
+        });
+      }
+
+      // ✅ Safely handle files
+      const files = req.files || {};
+      const tutor = new Tutor({
+        name,
+        email,
+        phone,
+        qualification,
+        city,
+        intro,
+        subject,
+        experience,
+        mode,
+        frontCnic: files.frontCnic ? files.frontCnic[0].filename : null,
+        backCnic: files.backCnic ? files.backCnic[0].filename : null,
+        cv: files.cv ? files.cv[0].filename : null,
+        qualificationProof: files.qualificationProof ? files.qualificationProof[0].filename : null
       });
 
       await tutor.save();
       console.log("Saved to DB ✔");
 
       return res.status(200).json({
-        message: "Application Submitted Successfully"
+        message: "Application Submitted Successfully",
+        
       });
     } catch (error) {
-      if (error.code === 11000) {
-        return res.status(400).json({
-          message: "Email already exists (already applied as tutor)"
-        });
-      }
-      console.error(error);
+      console.error("Tutor Apply Error:", error);
       res.status(500).json({ message: "Server Error" });
     }
   }

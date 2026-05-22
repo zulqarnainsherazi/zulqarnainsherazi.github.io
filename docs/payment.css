@@ -3,6 +3,7 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
@@ -152,22 +153,16 @@ cursor:pointer;
 /* HERO */
 
 .hero{
-
 height:90vh;
-
 background:url('payment.jpg.jpeg') center/cover no-repeat;
-
 display:flex;
+flex-wrap:wrap;
 align-items:center;
 justify-content:center;
 text-align:center;
-
 color:white;
-
-margin-top:60px;
-
+padding-top:70px;
 position:relative;
-
 }
 
 .hero::after{
@@ -183,7 +178,7 @@ left:0;
 .hero-content{
 position:relative;
 z-index:2;
-max-width:600px;
+animation:fadeIn 1.5s ease-in-out;
 }
 
 

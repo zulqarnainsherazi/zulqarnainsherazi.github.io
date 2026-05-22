@@ -204,12 +204,9 @@ function closePopup(){
   document.getElementById("policyPopup").style.display = "none";
 }
 
-async function submitTutor(){
-
+async function submitTutor() {
   try {
-
     const formData = new FormData();
-
     formData.append("name", document.getElementById("name").value);
     formData.append("email", document.getElementById("email").value);
     formData.append("phone", document.getElementById("phone").value);
@@ -219,37 +216,36 @@ async function submitTutor(){
     formData.append("mode", document.getElementById("mode").value);
     formData.append("city", document.getElementById("city").value);
     formData.append("intro", document.getElementById("intro").value);
-formData.append("frontCnic", document.getElementById("frontCnic").files[0]);
-formData.append("backCnic", document.getElementById("backCnic").files[0]);
-formData.append("cv", document.getElementById("cv").files[0]);
-formData.append("qualificationProof", document.getElementById("qualificationProof").files[0]);
-
-    
+    formData.append("frontCnic", document.getElementById("frontCnic").files[0]);
+    formData.append("backCnic", document.getElementById("backCnic").files[0]);
+    formData.append("cv", document.getElementById("cv").files[0]);
+    formData.append("qualificationProof", document.getElementById("qualificationProof").files[0]);
 
     const res = await fetch("http://localhost:5000/api/tutor/apply", {
       method: "POST",
       body: formData
     });
 
-    const data = await res.json();   // ✅ IMPORTANT FIX
+    const data = await res.json();   // ✅ Only parse once
 
-    console.log("RESPONSE:", data);
-
-    if(!res.ok){
+    if (!res.ok) {
       alert("Server Error: " + data.message);
       return;
     }
+alert("Application Submitted Successfully"); 
 
-    alert(data.message);
+    alert("Success: " + data.message);
+    console.log("RESPONSE:", data);
 
     document.getElementById("policyPopup").style.display = "none";
     document.getElementById("tutorForm").reset();
 
   } catch (error) {
     console.error("FETCH ERROR:", error);
-    alert("Server not reachable");
+    alert("Something went wrong. Please try again.");
   }
 }
+
 </script>
 <script>
 
