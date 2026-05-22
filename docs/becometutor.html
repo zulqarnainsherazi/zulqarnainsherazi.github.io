@@ -70,7 +70,7 @@
 <input type="text" id="name" placeholder="Full Name" required>
 <input type="email" id="email" placeholder="Email Address" required>
 <input type="tel" id="phone" placeholder="Phone Number" required>
-<input type="tel" id="phone" placeholder="Alternate Phone Number(both not same)" required>
+<input type="tel" id="altphone" placeholder="Alternate Phone Number(both not same)" required>
 
 <input type="text" id="qualification" placeholder="Highest Qualification" required>
 <input type="text" id="subject" placeholder="Subjects You Teach" required>
@@ -95,16 +95,17 @@
 
 <textarea id="intro" rows="4" placeholder="Professional Introduction"></textarea>
 <label>Front CNIC</label>
-<input type="file" id="cv">
+<input type="file" id="frontCnic" name="frontCnic">
 
 <label>Back CNIC</label>
-<input type="file" id="cv">
+<input type="file" id="backCnic" name="backCnic">
 
 <label>Upload CV</label>
-<input type="file" id="cv">
+<input type="file" id="cv" name="cv">
 
 <label>Last Qualification Proof</label>
-<input type="file" id="cv">
+<input type="file" id="qualificationProof" name="qualificationProof">
+
 
 <button type="submit" class="btn primary-btn" >Submit Application</button>
 <!-- Popup Modal -->
@@ -218,11 +219,12 @@ async function submitTutor(){
     formData.append("mode", document.getElementById("mode").value);
     formData.append("city", document.getElementById("city").value);
     formData.append("intro", document.getElementById("intro").value);
+formData.append("frontCnic", document.getElementById("frontCnic").files[0]);
+formData.append("backCnic", document.getElementById("backCnic").files[0]);
+formData.append("cv", document.getElementById("cv").files[0]);
+formData.append("qualificationProof", document.getElementById("qualificationProof").files[0]);
 
-    const cvFile = document.getElementById("cv").files[0];
-    if(cvFile){
-      formData.append("cv", cvFile);
-    }
+    
 
     const res = await fetch("http://localhost:5000/api/tutor/apply", {
       method: "POST",

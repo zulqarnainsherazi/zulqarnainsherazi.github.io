@@ -290,16 +290,26 @@ padding-top:15px;
 }
 
 
-/* RESPONSIVE */
-
 @media(max-width:768px){
-
-.payment-container{
-grid-template-columns:1fr;
-}
-
-nav{
-display:none;
-}
-
+  nav {
+    position:absolute;
+    top:70px;
+    right:-100%;
+    background:#0f172a;   /* ✅ Dark background for visibility */
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    transition:0.4s;
+    z-index:999;          /* ✅ Ensure it overlays content */
+  }
+  nav.active {
+    right:0;
+  }
+  nav a {
+    margin:10px 0;
+    color:#fff;           /* ✅ Keep links visible */
+  }
+  .menu-toggle {
+    display:block;
+  }
 }
