@@ -30,9 +30,9 @@ router.post(
       console.log("FILES:", req.files);
 
       // ✅ Validate required fields
-      const { name, email, phone, qualification, city, intro, subject, experience, mode } = req.body;
+      const { name, email, phone,altphone, qualification, city, intro, subject, experience, mode } = req.body;
 
-      if (!name || !email || !phone || !qualification) {
+      if (!name || !email || !phone || !altphone || !qualification || subject || !experience || !mode || !city || !intro) {
         return res.status(400).json({
           message: "Missing required fields: name, email, phone, qualification"
         });
@@ -52,6 +52,7 @@ router.post(
         name,
         email,
         phone,
+        altphone,
         qualification,
         city,
         intro,
@@ -67,7 +68,7 @@ router.post(
       await tutor.save();
       console.log("Saved to DB ✔");
 
-      return res.status(200).json({
+      return res.status(201).json({
         message: "Application Submitted Successfully",
         
       });
